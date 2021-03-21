@@ -11,8 +11,9 @@ require __DIR__ .  '/vendor/autoload.php';
 //var_dump($_POST['title']);
 //exit;
 
-MercadoPago\SDK::setAccessToken("APP_USR-334491433003961-030821-12d7475807d694b645722c1946
-d5ce5a-725736327");
+MercadoPago\SDK::setAccessToken("APP_USR-334491433003961-030821-12d7475807d694b645722c1946d5ce5a-725736327");
+                                
+
 
 MercadoPago\SDK::setIntegratorId("dev_24c65fb163bf11ea96500242ac130004");
 
@@ -32,7 +33,8 @@ $preference->items = array($item);
 $preference->external_reference = "reneeconceicaoapp@gmail.com";
 
 $preference->back_urls = array(
-    "success" => "https://reneeconceicao-mp-commerce-php.herokuapp.com/success.php",
+    //"success" => "https://reneeconceicao-mp-commerce-php.herokuapp.com/success.php",
+    "success" => "localhost/success.php",
     "failure" => "https://reneeconceicao-mp-commerce-php.herokuapp.com/failure.php",
     "pending" => "https://reneeconceicao-mp-commerce-php.herokuapp.com/pending.php"
 );
@@ -202,12 +204,10 @@ $preference->save();
                                             <?php echo "$" . $_POST['unit'] ?>
                                         </h3>
                                     </div>
-                                    <script
-									  src="https://www.mercadopago.com.mx/integrations/v1/web-payment-checkout.js"
-									  data-preference-id="<?php echo $preference->id; ?>">
-									</script>
+                                    
+                                    </script>
                                        <?php echo "<a href='$preference->init_point' class=box> Pagar a Compra </a>" ?>
-                                    <button type="submit" class="mercadopago-button" formaction="/index.php" formmethod="get">Pagar Agora</button>
+                                    
                                 </div>
                             </div>
                         </div>
