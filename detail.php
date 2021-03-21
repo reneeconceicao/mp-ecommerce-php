@@ -33,8 +33,7 @@ $preference->items = array($item);
 $preference->external_reference = "reneeconceicaoapp@gmail.com";
 
 $preference->back_urls = array(
-    //"success" => "https://reneeconceicao-mp-commerce-php.herokuapp.com/success.php",
-    "success" => "localhost/success.php",
+    "success" => "https://reneeconceicao-mp-commerce-php.herokuapp.com/success.php",
     "failure" => "https://reneeconceicao-mp-commerce-php.herokuapp.com/failure.php",
     "pending" => "https://reneeconceicao-mp-commerce-php.herokuapp.com/pending.php"
 );
@@ -206,7 +205,7 @@ $preference->save();
                                     </div>
                                     
                                     </script>
-                                       <?php echo "<a href='$preference->init_point' class=box> Pagar a Compra </a>" ?>
+                                       <?php echo "<a href='$preference->init_point' class=button> Pagar a Compra </a>" ?>
                                     
                                 </div>
                             </div>
