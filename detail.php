@@ -67,6 +67,7 @@ $preference->notification_url = "https://webhook.site/132ff7d1-e0be-4c0c-ba2f-1d
 $preference->save();
 
 
+
 ?>
 
 <!DOCTYPE html>
@@ -205,7 +206,15 @@ $preference->save();
                                     </div>
                                     
                                     </script>
-                                       <?php echo "<a href='$preference->init_point' class=button> Pagar a Compra </a>" ?>
+
+                                    <script
+                                      src="https://www.mercadopago.com.br/integrations/v1/web-payment-checkout.js"
+                                      data-button-label="Pagar a Compra"
+                                      data-preference-id="<?php echo $preference->id; ?>">
+                                    </script>
+                                    
+                                    <!--com redirect, e volta automática ao site-->
+                                    <!--<?php //echo "<a href='$preference->init_point' class=button> Pagar a Compra </a>" ?>-->
                                     
                                 </div>
                             </div>
