@@ -2,11 +2,20 @@
 // SDK de Mercado Pago
 require __DIR__ .  '/vendor/autoload.php';
 
+
+
 // Configura credenciais
-MercadoPago\SDK::setAccessToken('APP_USR-334491433003961-030821-12d7475807d694b645722c1946
-d5ce5a-725736327');
+//MercadoPago\SDK::setAccessToken('APP_USR-334491433003961-030821-12d7475807d694b645722c1946
+//d5ce5a-725736327');
+
+//var_dump($_POST['title']);
+//exit;
+
+MercadoPago\SDK::setAccessToken("APP_USR-334491433003961-030821-12d7475807d694b645722c1946
+d5ce5a-725736327");
 
 MercadoPago\SDK::setIntegratorId("dev_24c65fb163bf11ea96500242ac130004");
+
 
 // Cria um objeto de preferência
 $preference = new MercadoPago\Preference();
@@ -21,6 +30,7 @@ $item->picture_url =$_POST['img'];
 $item->unit_price = $_POST['price'];
 $preference->items = array($item);
 $preference->external_reference = "reneeconceicaoapp@gmail.com";
+
 $preference->back_urls = array(
     "success" => "https://reneeconceicao-mp-commerce-php.herokuapp.com/success.php",
     "failure" => "https://reneeconceicao-mp-commerce-php.herokuapp.com/failure.php",
@@ -51,7 +61,11 @@ $payer->address = array(
 
 $preference->payer = $payer;
 
+$preference->notification_url = "https://webhook.site/132ff7d1-e0be-4c0c-ba2f-1d03a7fb3530";
+
 $preference->save();
+
+
 ?>
 
 <!DOCTYPE html>
@@ -193,6 +207,7 @@ $preference->save();
 									  src="https://www.mercadopago.com.mx/integrations/v1/web-payment-checkout.js"
 									  data-preference-id="<?php echo $preference->id; ?>">
 									</script>
+                                       <?php echo "<a href='$preference->init_point' class=box> Pagar a Compra </a>" ?>
                                     <button type="submit" class="mercadopago-button" formaction="/index.php" formmethod="get">Pagar Agora</button>
                                 </div>
                             </div>
